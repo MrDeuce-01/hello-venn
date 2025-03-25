@@ -37,7 +37,8 @@ async function main() {
         from: owner.address,
         to: SAFE_VAULT_ADDRESS,
         value: hre.ethers.parseEther("0.0001").toString(),
-        data: safeVault.interface.encodeFunctionData("deposit")
+        data: safeVault.interface.encodeFunctionData("deposit"),
+        chainId: hre.network.config.chainId,
     });
     logger.done(" -> Venn Approved the transaction");
     logger.ok();

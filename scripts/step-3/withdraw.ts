@@ -37,7 +37,8 @@ async function main() {
         from: owner.address,
         to: SAFE_VAULT_ADDRESS,
         value: 0,
-        data: safeVault.interface.encodeFunctionData("withdraw", [hre.ethers.parseEther("0.0001")])
+        data: safeVault.interface.encodeFunctionData("withdraw", [hre.ethers.parseEther("0.0001")]),
+        chainId: hre.network.config.chainId,
     });
     logger.done(" -> Venn Approved the transaction");
     logger.ok();
